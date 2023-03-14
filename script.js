@@ -1,12 +1,23 @@
 //Query Selects
 let board = document.querySelector('#sketch-board');
-
+const sizeButton = document.querySelector('#change-size-button');
+const gridInput = document.querySelector('#grid-size-input');
+const resetButton = document.querySelector('#reset-button');
+const clearButton = document.querySelector('#clear-button');
 
 //Other variables
 let boardSize=64;
+let isMouseDown = false;
 
+
+//Detecting mousedown
+document.addEventListener('mousedown',()=>isMouseDown=true);
+document.addEventListener('mouseup',()=>isMouseDown=false);
+
+//Function Declarations and Definitions
 function makeBoard(boardSize)
 {
+    board.innerHTML = '';
     for(let i=0;i<boardSize;i++)
     {
         let row = document.createElement("div");
@@ -21,21 +32,44 @@ function makeBoard(boardSize)
         }
         board.appendChild(row);
     }
+    const cells = document.querySelectorAll('.board-cell');
+    cells.forEach((cell)=>cell.addEventListener('mouseover',()=>etchCell(cell.id)));
 }
 
 function etchCell(id)
 {
-    //console.log(id);
-    //Selects the hovered text
-    let hoverCell = document.getElementById(id);
-    //Change color to emulate an etch
-    hoverCell.style.cssText = 'background-color: black;';
+    if(isMouseDown)
+    {
+        //console.log(id);
+        //Selects the hovered text
+        let hoverCell = document.getElementById(id);
+        //Change color to emulate an etch
+        hoverCell.style.cssText = 'background-color: black;';
+    }
 }
 
+function clearBoard()
+{
+    const cells = document.querySelectorAll('.board-cell');
+    cells.forEach((cell)=>{
+        let reCell = document.getElementById(cell.id);
+        reCell.style.cssText = 'background-color: white';
+    });
+}
+
+//Event Listener declarations
+sizeButton.addEventListener('click',()=>makeBoard(gridInput.value));
+
+resetButton.addEventListener('click',()=>{
+gridInput.value=64;
+boardSize=64;
+makeBoard(boardSize);
+});
+
+clearButton.addEventListener('click',()=>clearBoard());
+
+//onload function
 window.onload
 {
     makeBoard(boardSize);
-    //select cells to look for hover event
-    const cells = document.querySelectorAll('.board-cell');
-    cells.forEach((cell)=>cell.addEventListener('mouseover',()=>etchCell(cell.id)));
 }
