@@ -38,6 +38,7 @@ function makeBoard(boardSize)
 
 function etchCell(id)
 {
+    //etch occurs only if mouseDown is true after clicking
     if(isMouseDown)
     {
         //console.log(id);

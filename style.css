@@ -79,22 +79,25 @@ button
     height: 5px;
     background-color: white;
     margin: 2px;
+    cursor:default;
 }
 
 button
 {
-    border: none;
-    width: 100px;
-    height: 50px;
-    background-color: white;
-    border-radius: 5px; 
+    width: 250px;
+    border: 1px;
+    border-style:solid;
+    border-color: white;
+    background-color: black;
+    border-radius: 15px; 
     margin: 10px;  
     font-family: 'GeneralSans'; 
-    font-size: 15px;
+    color: white;
+    font-size: 20px;
 }
 
 input{
     margin: 10px;
     font-family: 'GeneralSans';
-    font-size: 15px;
+    font-size: 20px;
 }
