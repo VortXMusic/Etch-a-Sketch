@@ -29,7 +29,7 @@ function etchCell(id)
     //Selects the hovered text
     let hoverCell = document.getElementById(id);
     //Change color to emulate an etch
-    hoverCell.style.cssText = 'background-color: grey;';
+    hoverCell.style.cssText = 'background-color: black;';
 }
 
 window.onload

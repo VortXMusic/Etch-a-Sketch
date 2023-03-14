@@ -4,15 +4,25 @@ body
 }
 
 @font-face {
-    font-family: 'Sinistre';
-    src: url('./Sinistre/Sinistre-S†Caroline.otf');
+    font-family: 'GeneralSansBold';
+    src: url('./GeneralSans/GeneralSans-Bold.otf');
+}
+
+@font-face {
+    font-family: 'GeneralSans';
+    src: url('./GeneralSans/GeneralSans-Regular.otf');
 }
 
 .text
 {
-    font-family: 'Sinistre';
+    font-family: 'GeneralSansBold';
     color:white;
     text-align: center;
+}
+
+#by-text
+{
+    font-family: 'GeneralSans';
 }
 
 #interface
@@ -23,13 +33,34 @@ body
     align-items: center;
 }
 
+#controls
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#grid-size-input
+{
+    text-align: center;
+}
+
+#grid-size-mod
+{
+    display: flex;
+
+}
+
 button
 {
     cursor: pointer;
 }
 
+
 #sketch-board
 {
+    background-color: white;
     display: flex;
 }
 
@@ -48,4 +79,22 @@ button
     height: 5px;
     background-color: white;
     margin: 2px;
+}
+
+button
+{
+    border: none;
+    width: 100px;
+    height: 50px;
+    background-color: white;
+    border-radius: 5px; 
+    margin: 10px;  
+    font-family: 'GeneralSans'; 
+    font-size: 15px;
+}
+
+input{
+    margin: 10px;
+    font-family: 'GeneralSans';
+    font-size: 15px;
 }
